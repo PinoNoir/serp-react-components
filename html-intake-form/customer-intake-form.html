@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a SeriousERP Demo</title>
+    <link rel="stylesheet" href="form-styles.css">
+</head>
+<body>
+    <div class="form-wrapper">
+        <h1 class="form-title">Request a SeriousERP Demo</h1>
+
+        <!-- Progress Steps -->
+        <div class="stepper">
+            <div class="step active" data-step="1">
+                <span class="step-number">1</span>
+                <span class="step-label">Contact Info</span>
+            </div>
+            <div class="step" data-step="2">
+                <span class="step-number">2</span>
+                <span class="step-label">Current Software</span>
+            </div>
+            <div class="step" data-step="3">
+                <span class="step-number">3</span>
+                <span class="step-label">Business Info</span>
+            </div>
+        </div>
+
+        <!-- Form Content -->
+        <form id="customerForm" method="post" action="/submit-form">
+
+            <!-- Step 1: Contact Info -->
+            <div class="form-step active" data-step="1">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="workEmail">Valid work email <span class="required">*</span></label>
+                    <input type="email" id="workEmail" name="workEmail" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="phoneNumber">Direct Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(555) 555-5555" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="companyName">Company Name <span class="required">*</span></label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="jobTitle">Job Title <span class="required">*</span></label>
+                    <input type="text" id="jobTitle" name="jobTitle" required>
+                </div>
+
+                <div class="form-field checkbox-field">
+                    <label>
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <span>I agree to allow Serious ERP to store and process my personal data according to its terms <span class="required">*</span></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 2: Current Software -->
+            <div class="form-step" data-step="2">
+                <div class="form-field">
+                    <label for="dmeSoftware">What DME software are you using? <span class="required">*</span></label>
+                    <select id="dmeSoftware" name="dmeSoftware" required>
+                        <option value="">Select DME software</option>
+                        <option value="MedFlow Pro">MedFlow Pro</option>
+                        <option value="CareTech Solutions">CareTech Solutions</option>
+                        <option value="HealthStream DME">HealthStream DME</option>
+                        <option value="QuickMed Manager">QuickMed Manager</option>
+                        <option value="EasyScript DME">EasyScript DME</option>
+                        <option value="ProCare Systems">ProCare Systems</option>
+                        <option value="MediTrack Plus">MediTrack Plus</option>
+                        <option value="CarePoint DME">CarePoint DME</option>
+                        <option value="FlexMed Solutions">FlexMed Solutions</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="csrCount">How many CSRs? <span class="slider-value" id="csrCountValue">0</span></label>
+                    <input type="range" id="csrCount" name="csrCount" min="0" max="50" value="0">
+                </div>
+
+                <div class="form-field">
+                    <label for="billerCount">How many Billers? <span class="slider-value" id="billerCountValue">0</span></label>
+                    <input type="range" id="billerCount" name="billerCount" min="0" max="30" value="0">
+                </div>
+
+                <div class="form-field">
+                    <label for="dispatcherCount">How many Dispatchers? <span class="slider-value" id="dispatcherCountValue">0</span></label>
+                    <input type="range" id="dispatcherCount" name="dispatcherCount" min="0" max="20" value="0">
+                </div>
+
+                <div class="form-field">
+                    <label for="warehouseCount">How many Warehouses? <span class="slider-value" id="warehouseCountValue">0</span></label>
+                    <input type="range" id="warehouseCount" name="warehouseCount" min="0" max="10" value="0">
+                </div>
+
+                <div class="form-field">
+                    <label for="equipmentLossValue">What is estimated lost equipment value loss per month? <span class="slider-value" id="equipmentLossValueDisplay">$0</span></label>
+                    <input type="range" id="equipmentLossValue" name="equipmentLossValue" min="0" max="50000" step="500" value="0">
+                </div>
+
+                <div class="form-field">
+                    <label for="painPoints">What pain points are you looking for Serious ERP to address? <span class="required">*</span></label>
+                    <textarea id="painPoints" name="painPoints" rows="4" required></textarea>
+                </div>
+            </div>
+
+            <!-- Step 3: Business Info -->
+            <div class="form-step" data-step="3">
+                <div class="form-field">
+                    <label>Do you rent equipment? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="rentEquipment" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="rentEquipment" value="No"> No</label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Do you bill facilities? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="billFacilities" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="billFacilities" value="No"> No</label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Do you bill insurance? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="billInsurance" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="billInsurance" value="No"> No</label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="techsDrivers">How many techs/drivers do you have?</label>
+                    <select id="techsDrivers" name="techsDrivers">
+                        <option value="">Select a range</option>
+                        <option value="1-5">1-5</option>
+                        <option value="6-10">6-10</option>
+                        <option value="11-50">11-50</option>
+                        <option value="50+">50+</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="patientCensus">What's your active patient census?</label>
+                    <select id="patientCensus" name="patientCensus">
+                        <option value="">Select a range</option>
+                        <option value="1-500">1-500</option>
+                        <option value="501-1000">501-1000</option>
+                        <option value="1001-2000">1001-2000</option>
+                        <option value="2000+">2000+</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="additionalComments">Additional Comments</label>
+                    <textarea id="additionalComments" name="additionalComments" rows="4"></textarea>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Back</button>
+                <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Request Demo</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="form-navigation.js"></script>
+</body>
+</html>
